@@ -1,6 +1,3 @@
-local ShopItems = {}
-
-
 function GetItemFromShop(Item, Zone)
 	local item = {}
 	local found = false
