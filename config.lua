@@ -11,12 +11,12 @@ Config.Zones = {
 		Items = {
 			{
 				name = "bread",
-				label = "bread",
+				label = TranslateCap('bread'),
 				price = 100
 			},
 			{
 				name = "water",
-				label = "water",
+				label = TranslateCap('water'),
 				price = 100
 			}
 		},
@@ -41,12 +41,12 @@ Config.Zones = {
 		Items = {
 			{
 				name = "bread",
-				label = "bread",
+				label = TranslateCap('bread'),
 				price = 100
 			},
 			{
 				name = "water",
-				label = "water",
+				label = TranslateCap('water'),
 				price = 100
 			}
 		},
@@ -72,12 +72,12 @@ Config.Zones = {
 		Items = {
 			{
 				name = "bread",
-				label = "bread",
+				label = TranslateCap('bread'),
 				price = 100
 			},
 			{
 				name = "water",
-				label = "water",
+				label = TranslateCap('water'),
 				price = 100
 			}
 		},

@@ -9,4 +9,10 @@ Locales['en'] = {
   ['shop_confirm'] = 'buy %sx %s for $%s?',
   ['no'] = 'no',
   ['yes'] = 'yes',
+  ['amount'] = 'Amount',
+  ['amount_placeholder'] = 'Amount you want to buy',
+  ['confirm'] = 'Confirm',
+  ['purchase'] = 'Purchase',
+  ['bread'] = 'Bread',
+  ['water'] = 'Water',
 }
