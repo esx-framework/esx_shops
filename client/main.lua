@@ -21,8 +21,8 @@ function OpenShopMenu(zone)
 	ESX.OpenContext("right", elements, function(menu,element)
 		local elements2 = {
 			{unselectable = true, icon = "fas fa-shopping-basket", title = element.title},
-			{icon = "fas fa-shopping-basket", title = "Amount", input = true, inputType = "number", inputPlaceholder = "Amount you want to buy", inputMin = 1, inputMax = 25},
-			{icon = "fas fa-check-double", title = "Confirm", val = "confirm"}
+			{icon = "fas fa-shopping-basket", title = TranslateCap('amount'), input = true, inputType = "number", inputPlaceholder = TranslateCap('amount_placeholder'), inputMin = 1, inputMax = 25},
+			{icon = "fas fa-check-double", title = TranslateCap('confirm'), val = "confirm"}
 		}
 
 		ESX.OpenContext("right", elements2, function(menu2,element2)

@@ -9,4 +9,10 @@ Locales['zh-cn'] = {
   ['shop_confirm'] = '确认购买 %sX%s -支付:$%s?',
   ['no'] = '取消',
   ['yes'] = '确认',
+  ['amount'] = 'Amount', --not translated
+  ['amount_placeholder'] = 'Amount you want to buy', --not translated
+  ['confirm'] = 'Confirm', --not translated
+  ['purchase'] = 'Purchase', --not translated
+  ['bread'] = 'Bread', --not translated
+  ['water'] = 'Water', --not translated
 }

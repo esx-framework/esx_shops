@@ -9,4 +9,10 @@ Locales['fi'] = {
   ['shop_confirm'] = 'Osta %sx %s hintaan $%s?',
   ['no'] = 'Ei',
   ['yes'] = 'Kyllä',
+  ['amount'] = 'Amount', --not translated
+  ['amount_placeholder'] = 'Amount you want to buy', --not translated
+  ['confirm'] = 'Confirm', --not translated
+  ['purchase'] = 'Purchase', --not translated
+  ['bread'] = 'Bread', --not translated
+  ['water'] = 'Water', --not translated
 }
