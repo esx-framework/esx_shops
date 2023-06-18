@@ -1,27 +1,26 @@
-function GetItemFromShop(Item, Zone)
-	local item = {}
-	local found = false
-	for i=1, #Config.Zones[Zone].Items, 1 do
-		if Config.Zones[Zone].Items[i].name == Item then
-			item = Config.Zones[Zone].Items[i]
-			found = true
+function GetItemFromShop(itemName, zone)
+	local zoneItems = Config.Zones[zone].Items
+	local item = nil
+
+	for _, itemData in pairs(zoneItems) do
+		if itemData.name == itemName then
+			item = itemData
 			break
 		end
 	end
 
-	if found then 
-		return true, item.price, item.label
-	else
+	if not item then
 		return false
 	end
-end
 
+	return item.price, item.label
+end
 
 RegisterServerEvent('esx_shops:buyItem')
 AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
 	local source = source
 	local xPlayer = ESX.GetPlayerFromId(source)
-	local Exists, price,label = GetItemFromShop(itemName,zone)
+	local Exists, price, label = GetItemFromShop(itemName, zone)
 	amount = ESX.Math.Round(amount)
 
 	if amount < 0 then
@@ -36,7 +35,7 @@ AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
 
 	if Exists then
 		price = price * amount
-	-- can the player afford this item?
+		-- can the player afford this item?
 		if xPlayer.getMoney() >= price then
 			-- can the player carry the said amount of x item?
 			if xPlayer.canCarryItem(itemName, amount) then
