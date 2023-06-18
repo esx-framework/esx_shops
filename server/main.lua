@@ -1,6 +1,3 @@
-local ShopItems = {}
-
-
 function GetItemFromShop(itemName, zone)
 	local zoneItems = Config.Zones[zone].Items
 	local item = nil
@@ -43,7 +40,7 @@ AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
 		if xPlayer.getMoney() >= price then
 			-- can the player carry the said amount of x item?
 			if xPlayer.canCarryItem(itemName, amount) then
-				xPlayer.removeMoney(price, label .. " Purchase")
+				xPlayer.removeMoney(price, label .. " " .. TranslateCap('purchase'))
 				xPlayer.addInventoryItem(itemName, amount)
 				xPlayer.showNotification(TranslateCap('bought', amount, label, ESX.Math.GroupDigits(price)))
 			else

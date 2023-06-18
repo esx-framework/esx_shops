@@ -1,0 +1,18 @@
+Locales['sl'] = {
+  ['shop'] = 'Trgovina',
+  ['shops'] = 'Trgovine',
+  ['press_menu'] = 'pritisni [E] da odpres ~g~Trgovino.',
+  ['shop_item'] = '$%s',
+  ['bought'] = 'Vi ste kupili ~b~%sx %s~s~ za ~b~$%s',
+  ['not_enough'] = 'Vi ~r~nimate~s~ dovolj denarja, manjka vam ~b~$%s!',
+  ['player_cannot_hold'] = 'Vi ~r~nimate~s~ dovolj prostora v vasi shrambi!',
+  ['shop_confirm'] = 'kupi %sx %s za $%s?',
+  ['no'] = 'ne',
+  ['yes'] = 'da',
+  ['amount'] = 'vsota',
+  ['amount_placeholder'] = 'Koliko kosov bi kupili?',
+  ['confirm'] = 'Potrdi',
+  ['purchase'] = 'Kupi',
+  ['bread'] = 'Krh',
+  ['water'] = 'Voda',
+}
