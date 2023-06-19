@@ -1,7 +1,7 @@
 local hasAlreadyEnteredMarker, lastZone
 local currentAction, currentActionMsg, currentActionData = nil, nil, {}
 
-function OpenShopMenu(zone)
+local function openShopMenu(zone)
 	local elements = {
 		{unselectable = true, icon = "fas fa-shopping-basket", title = TranslateCap('shop') }
 	}
@@ -41,22 +41,23 @@ function OpenShopMenu(zone)
 	end)
 end
 
-AddEventHandler('esx_shops:hasEnteredMarker', function(zone)
+local function hasEnteredMarker(zone)
 	currentAction     = 'shop_menu'
 	currentActionMsg  = TranslateCap('press_menu')
 	currentActionData = {zone = zone}
-end)
+end
 
-AddEventHandler('esx_shops:hasExitedMarker', function(zone)
+local function hasExitedMarker(zone)
 	currentAction = nil
 	ESX.CloseContext()
-end)
+end
 
 -- Create Blips
 CreateThread(function()
 	for k,v in pairs(Config.Zones) do
 		for i = 1, #v.Pos, 1 do
-			if v.ShowBlip then
+			if not v.ShowBlip then return end
+				
 			local blip = AddBlipForCoord(v.Pos[i])
 
 			SetBlipSprite (blip, v.Type)
@@ -69,21 +70,20 @@ CreateThread(function()
 			EndTextCommandSetBlipName(blip)
 		end
 	end
-	end
 end)
 
 -- Enter / Exit marker events
 CreateThread(function()
 	while true do
-		local Sleep = 1500
+		local sleep = 1500
 
 		if currentAction then
-			Sleep = 0
+			sleep = 0
 
 			if IsControlJustReleased(0, 38) and currentAction == 'shop_menu' then
 				currentAction = nil
 				ESX.HideUI()
-				OpenShopMenu(currentActionData.zone)
+				openShopMenu(currentActionData.zone)
 			end
 		end
 
@@ -95,10 +95,10 @@ CreateThread(function()
 				local distance = #(playerCoords - v.Pos[i])
 
 				if distance < Config.DrawDistance then
-					Sleep = 0
+					sleep = 0
 					if v.ShowMarker then
 						DrawMarker(Config.MarkerType, v.Pos[i], 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Config.MarkerSize.x, Config.MarkerSize.y, Config.MarkerSize.z, Config.MarkerColor.r, Config.MarkerColor.g, Config.MarkerColor.b, 100, false, true, 2, false, nil, nil, false)
-				  end
+				  	end
 					if distance < 2.0 then
 						isInMarker  = true
 						currentZone = k
@@ -111,14 +111,15 @@ CreateThread(function()
 		if isInMarker and not hasAlreadyEnteredMarker then
 			hasAlreadyEnteredMarker = true
 			ESX.TextUI(currentActionMsg)
-			TriggerEvent('esx_shops:hasEnteredMarker', currentZone)
+			hasEnteredMarker(currentZone)
 		end
 
 		if not isInMarker and hasAlreadyEnteredMarker then
 			hasAlreadyEnteredMarker = false
 			ESX.HideUI()
-			TriggerEvent('esx_shops:hasExitedMarker', lastZone)
+			hasExitedMarker(lastZone)
 		end
-	Wait(Sleep)
+			
+		Wait(sleep)
 	end
 end)
