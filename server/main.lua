@@ -13,7 +13,7 @@ function GetItemFromShop(itemName, zone)
 		return false
 	end
 
-	return item.price, item.label
+	return true,item.price, item.label
 end
 
 RegisterServerEvent('esx_shops:buyItem')
