@@ -110,8 +110,8 @@ CreateThread(function()
 
 		if isInMarker and not hasAlreadyEnteredMarker then
 			hasAlreadyEnteredMarker = true
-			ESX.TextUI(currentActionMsg)
 			hasEnteredMarker(currentZone)
+			ESX.TextUI(currentActionMsg)
 		end
 
 		if not isInMarker and hasAlreadyEnteredMarker then
