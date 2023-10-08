@@ -1,0 +1,18 @@
+Locales['sv'] = {
+    ['shop'] = 'Affär',
+    ['shops'] = 'Affärer',
+    ['press_menu'] = 'Tryck [E] för att öppna ~g~affären.',
+    ['shop_item'] = '%skr',
+    ['bought'] = 'Du har köpt ~b~%sx %s~s~ för ~b~%skr',
+    ['not_enough'] = 'Du har ~r~inte~s~ råd, det fattas ~b~%skr!',
+    ['player_cannot_hold'] = 'Du har ~r~inte~s~ plats i inventoryt för detta!',
+    ['shop_confirm'] = 'Köp %sx %s för %skr?',
+    ['no'] = 'Ja',
+    ['yes'] = 'Nej',
+    ['amount'] = 'Antal',
+    ['amount_placeholder'] = 'Antal du vill köpa',
+    ['confirm'] = 'Godkänn',
+    ['purchase'] = 'Köp',
+    ['bread'] = 'Bröd',
+    ['water'] = 'Vatten',
+  }
