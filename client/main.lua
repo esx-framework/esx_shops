@@ -1,17 +1,17 @@
-local hasAlreadyEnteredMarker, lastZone
-local currentAction, currentActionMsg, currentActionData = nil, nil, {}
+local currentAction, currentActionMsg, currentActionData, hasAlreadyEnteredMarker = nil, nil, {}, nil
 
 local function openShopMenu(zone)
 	local elements = {
 		{unselectable = true, icon = "fas fa-shopping-basket", title = TranslateCap('shop') }
 	}
 
-	for i=1, #Config.Zones[zone].Items, 1 do
-		local item = Config.Zones[zone].Items[i]
+	local zoneItems = Config.Zones[zone].Items
+	for i=1, #zoneItems, 1 do
+		local item = zoneItems[i]
 
 		elements[#elements+1] = {
 			icon = "fas fa-shopping-basket",
-			title = ('%s - <span style="color:green;">%s</span>'):format(item.label, TranslateCap('shop_item', ESX.Math.GroupDigits(item.price))),
+			title = item.label..' - <span style="color:green;">'.. TranslateCap('shop_item', ESX.Math.GroupDigits(item.price)).. '</span>',
 			itemLabel = item.label,
 			item = item.name,
 			price = item.price
@@ -29,12 +29,12 @@ local function openShopMenu(zone)
 			local amount = menu2.eles[2].inputValue
 			ESX.CloseContext()
 			TriggerServerEvent('esx_shops:buyItem', element.item, amount, zone)
-		end, function(menu)
+		end, function()
 			currentAction     = 'shop_menu'
 			currentActionMsg  = TranslateCap('press_menu')
 			currentActionData = {zone = zone}
 		end)
-	end, function(menu)
+	end, function()
 		currentAction     = 'shop_menu'
 		currentActionMsg  = TranslateCap('press_menu')
 		currentActionData = {zone = zone}
@@ -47,14 +47,14 @@ local function hasEnteredMarker(zone)
 	currentActionData = {zone = zone}
 end
 
-local function hasExitedMarker(zone)
+local function hasExitedMarker()
 	currentAction = nil
 	ESX.CloseContext()
 end
 
 -- Create Blips
 CreateThread(function()
-	for k,v in pairs(Config.Zones) do
+	for _,v in pairs(Config.Zones) do
 		for i = 1, #v.Pos, 1 do
 			if not v.ShowBlip then return end
 				
@@ -72,7 +72,6 @@ CreateThread(function()
 	end
 end)
 
--- Enter / Exit marker events
 CreateThread(function()
 	while true do
 		local sleep = 1500
@@ -102,7 +101,6 @@ CreateThread(function()
 					if distance < 2.0 then
 						isInMarker  = true
 						currentZone = k
-						lastZone    = k
 					end
 				end
 			end
@@ -117,7 +115,7 @@ CreateThread(function()
 		if not isInMarker and hasAlreadyEnteredMarker then
 			hasAlreadyEnteredMarker = false
 			ESX.HideUI()
-			hasExitedMarker(lastZone)
+			hasExitedMarker()
 		end
 			
 		Wait(sleep)
