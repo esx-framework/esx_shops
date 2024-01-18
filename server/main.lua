@@ -1,43 +1,30 @@
-function GetItemFromShop(itemName, zone)
-	local zoneItems = Config.Zones[zone].Items
-	local item = nil
+local function GetItemFromShop(itemName, zone)
+	local ShopItemsByZone = Config.Zones[zone].Items
 
-	for _, itemData in pairs(zoneItems) do
+	for i = 1, #ShopItemsByZone do 
+		local itemData = ShopItemsByZone[i]
 		if itemData.name == itemName then
-			item = itemData
-			break
+			return true, itemData.price, itemData.label
 		end
-	end
+	end 
 
-	if not item then
-		return false
-	end
-
-	return true,item.price, item.label
+	return false
 end
 
-RegisterServerEvent('esx_shops:buyItem')
-AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
+RegisterNetEvent('esx_shops:buyItem', function(itemName, amount, zone)
 	local source = source
 	local xPlayer = ESX.GetPlayerFromId(source)
-	local Exists, price, label = GetItemFromShop(itemName, zone)
-	amount = ESX.Math.Round(amount)
+	local Exists, price, label, amount = GetItemFromShop(itemName, zone), ESX.Math.Round(amount)
 
-	if amount < 0 then
-		print(('[^3WARNING^7] Player ^5%s^7 attempted to exploit the shop!'):format(source))
-		return
-	end
-
-	if not Exists then
+	if amount < 0 or not Exists then
 		print(('[^3WARNING^7] Player ^5%s^7 attempted to exploit the shop!'):format(source))
 		return
 	end
 
 	if Exists then
 		price = price * amount
-		-- can the player afford this item?
-		if xPlayer.getMoney() >= price then
-			-- can the player carry the said amount of x item?
+		local money = xPlayer.getMoney()
+		if money >= price then
 			if xPlayer.canCarryItem(itemName, amount) then
 				xPlayer.removeMoney(price, label .. " " .. TranslateCap('purchase'))
 				xPlayer.addInventoryItem(itemName, amount)
@@ -46,7 +33,7 @@ AddEventHandler('esx_shops:buyItem', function(itemName, amount, zone)
 				xPlayer.showNotification(TranslateCap('player_cannot_hold'))
 			end
 		else
-			local missingMoney = price - xPlayer.getMoney()
+			local missingMoney = price - money
 			xPlayer.showNotification(TranslateCap('not_enough', ESX.Math.GroupDigits(missingMoney)))
 		end
 	end
