@@ -1,7 +1,7 @@
 Locales['hu'] = {
   ['shop'] = 'Bolt',
   ['shops'] = 'Bolt',
-  ['press_menu'] = 'Nyomd meg a [E] gombot hogy megnézd a kinálatot',
+  ['press_menu'] = 'Nyomd meg a [%s] gombot hogy megnézd a kinálatot',
   ['shop_item'] = '$%s',
   ['bought'] = 'Vettél %sx %s ennyiért: ~r~$%s',
   ['not_enough'] = 'Nincsen elég pénzed',

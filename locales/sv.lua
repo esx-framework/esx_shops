@@ -1,7 +1,7 @@
 Locales['sv'] = {
     ['shop'] = 'Affär',
     ['shops'] = 'Affärer',
-    ['press_menu'] = 'Tryck [E] för att öppna ~g~affären.',
+    ['press_menu'] = 'Tryck [%s] för att öppna ~g~affären.',
     ['shop_item'] = '%skr',
     ['bought'] = 'Du har köpt ~b~%sx %s~s~ för ~b~%skr',
     ['not_enough'] = 'Du har ~r~inte~s~ råd, det fattas ~b~%skr!',

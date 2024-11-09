@@ -1,7 +1,7 @@
 Locales['zh-cn'] = {
   ['shop'] = '购物商店',
   ['shops'] = '购物商店',
-  ['press_menu'] = '键下 [E] 访问~g~购物商店.',
+  ['press_menu'] = '键下 [%s] 访问~g~购物商店.',
   ['shop_item'] = '$%s',
   ['bought'] = '已购 ~b~%sx %s~s~ -支付:~b~$%s',
   ['not_enough'] = '暂无足够资金, 您还需要~b~$%s!',

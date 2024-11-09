@@ -1,7 +1,7 @@
 Locales['sr'] = {
   ['shop'] = 'Prodavnica',
   ['shops'] = 'Prodavnice',
-  ['press_menu'] = 'Pritisni [E] da pristupiš ~g~prodavnici.',
+  ['press_menu'] = 'Pritisni [%s] da pristupiš ~g~prodavnici.',
   ['shop_item'] = '$%s',
   ['bought'] = 'Kupili ste ~b~%sx %s~s~ za ~b~$%s',
   ['not_enough'] = 'Vi ~r~nemate~s~ dovoljno novca, nedostaje vam ~b~$%s!',

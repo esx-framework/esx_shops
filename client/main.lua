@@ -31,19 +31,19 @@ local function openShopMenu(zone)
 			TriggerServerEvent('esx_shops:buyItem', element.item, amount, zone)
 		end, function(menu)
 			currentAction     = 'shop_menu'
-			currentActionMsg  = TranslateCap('press_menu')
+			currentActionMsg  = TranslateCap('press_menu', ESX.GetInteractKey())
 			currentActionData = {zone = zone}
 		end)
 	end, function(menu)
 		currentAction     = 'shop_menu'
-		currentActionMsg  = TranslateCap('press_menu')
+		currentActionMsg  = TranslateCap('press_menu', ESX.GetInteractKey())
 		currentActionData = {zone = zone}
 	end)
 end
 
 local function hasEnteredMarker(zone)
 	currentAction     = 'shop_menu'
-	currentActionMsg  = TranslateCap('press_menu')
+	currentActionMsg  = TranslateCap('press_menu', ESX.GetInteractKey())
 	currentActionData = {zone = zone}
 end
 

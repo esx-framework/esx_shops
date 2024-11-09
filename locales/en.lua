@@ -1,7 +1,7 @@
 Locales['en'] = {
   ['shop'] = 'shop',
   ['shops'] = 'shops',
-  ['press_menu'] = 'press [E] to access the ~g~store.',
+  ['press_menu'] = 'press [%s] to access the ~g~store.',
   ['shop_item'] = '$%s',
   ['bought'] = 'You Have Bought ~b~%sx %s~s~ for ~b~$%s',
   ['not_enough'] = 'you do ~r~not~s~ have enough money, you\'re missing ~b~$%s!',

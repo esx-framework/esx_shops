@@ -1,7 +1,7 @@
 Locales['sl'] = {
   ['shop'] = 'Trgovina',
   ['shops'] = 'Trgovine',
-  ['press_menu'] = 'pritisni [E] da odpres ~g~Trgovino.',
+  ['press_menu'] = 'pritisni [%s] da odpres ~g~Trgovino.',
   ['shop_item'] = '$%s',
   ['bought'] = 'Vi ste kupili ~b~%sx %s~s~ za ~b~$%s',
   ['not_enough'] = 'Vi ~r~nimate~s~ dovolj denarja, manjka vam ~b~$%s!',

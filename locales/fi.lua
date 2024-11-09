@@ -1,7 +1,7 @@
 Locales['fi'] = {
   ['shop'] = 'Kauppa',
   ['shops'] = 'Kauppa',
-  ['press_menu'] = 'Paina [E] avataksesi valikko.',
+  ['press_menu'] = 'Paina [%s] avataksesi valikko.',
   ['shop_item'] = '€%s',
   ['bought'] = 'Sinä ostit juuri %sx %s. Summaksi tuli ~r~€%s',
   ['not_enough'] = 'Sinulla ei ole ~r~tarpeeksi rahaa, sinulta puuttuu ~r~€%s!',
