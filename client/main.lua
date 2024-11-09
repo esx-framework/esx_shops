@@ -77,17 +77,7 @@ CreateThread(function()
 	while true do
 		local sleep = 1500
 
-		if currentAction then
-			sleep = 0
-
-			if IsControlJustReleased(0, 38) and currentAction == 'shop_menu' then
-				currentAction = nil
-				ESX.HideUI()
-				openShopMenu(currentActionData.zone)
-			end
-		end
-
-		local playerCoords = GetEntityCoords(PlayerPedId())
+		local playerCoords = GetEntityCoords(ESX.PlayerData.ped)
 		local isInMarker, currentZone = false, nil
 
 		for k,v in pairs(Config.Zones) do
@@ -122,4 +112,10 @@ CreateThread(function()
 			
 		Wait(sleep)
 	end
+end)
+
+ESX.RegisterInteraction("shop_menu", function()
+	openShopMenu(currentActionData.zone)
+end, function()
+	return currentAction and currentAction == 'shop_menu'
 end)
